@@ -41,5 +41,4 @@ public class Category implements EntityService {
 
     @OneToMany(mappedBy = "category")
     private List<Product> products;
-
 }

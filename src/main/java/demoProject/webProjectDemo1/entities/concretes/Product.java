@@ -26,13 +26,11 @@ public class Product {
     @Column(name = "product_discount")
     private int discount;
     @Column(name = "product_net_price")
-    private double netPrice;
+    private double netPrice=0;
 
     @ManyToOne
     @JoinColumn(name="product_categoryId")
      private Category category;
-
-
 
     public int getId() {
         return id;
@@ -83,10 +81,11 @@ public class Product {
         this.discount = discount;
     }
     public double getNetPrice() {
-        return netPrice;
+        return getUnitPrice()-(getUnitPrice()*discount/100);
     }
 
     public void setNetPrice(double netPrice) {
-        this.netPrice = netPrice;
+
+        this.netPrice = unitPrice;
     }
 }
