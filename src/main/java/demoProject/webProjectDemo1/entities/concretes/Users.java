@@ -13,23 +13,23 @@ public class Users {
     private int id;
     @Column(name = "user_name")
     private String name;
-    @Column(name = "user_surName")
+    @Column(name = "user_surname")
     private String surName;
     @Column(name = "user_email")
     private String email;
     @Column(name = "user_birthday")
     private Date birthday;
+    @Column(name="user_phone_number")
+    private String phoneNumber;
 
-
-    public Users(int id, String name, String surName, String email, Date birthday) {
-        super();
+    public Users(int id, String name, String surName, String email, Date birthday, String phoneNumber) {
         this.id = id;
         this.name = name;
         this.surName = surName;
         this.email = email;
         this.birthday = birthday;
+        this.phoneNumber = phoneNumber;
     }
-
 
     public int getId() {
         return id;
@@ -70,4 +70,15 @@ public class Users {
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
+
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+
 }

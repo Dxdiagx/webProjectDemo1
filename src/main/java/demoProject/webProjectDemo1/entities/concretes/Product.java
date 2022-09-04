@@ -1,9 +1,13 @@
 package demoProject.webProjectDemo1.entities.concretes;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
 @Entity
 @Table(name = "product")
 @NoArgsConstructor
+@AllArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","category"})
 public class Product {
     @Column(name = "product_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,17 +28,12 @@ public class Product {
     @Column(name = "product_net_price")
     private double netPrice;
 
+    @ManyToOne
+    @JoinColumn(name="product_categoryId")
+     private Category category;
 
-    public Product(int id, String productName, double unitPrice, String webAdress, String webAdressName, int discount, double netPrice) {
 
-        this.id = id;
-        this.productName = productName;
-        this.unitPrice = unitPrice;
-        this.webAdress = webAdress;
-        this.webAdressName = webAdressName;
-        this.discount = discount;
-        this.netPrice = netPrice;
-    }
+
     public int getId() {
         return id;
     }

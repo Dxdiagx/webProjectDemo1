@@ -10,6 +10,4 @@ public class WebProjectDemo1Application {
 
 		SpringApplication.run(WebProjectDemo1Application.class, args);
 	}
-
-
 }
