@@ -2,6 +2,7 @@ package demoProject.webProjectDemo1.entities.concretes;
 
 import demoProject.webProjectDemo1.entities.abstracts.EntityService;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @Table(name = "category")
+@Data
 @AllArgsConstructor
 public class Category implements EntityService {
     @Id

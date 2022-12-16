@@ -1,12 +1,14 @@
 package demoProject.webProjectDemo1.entities.concretes;
 import demoProject.webProjectDemo1.entities.abstracts.EntityService;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.Date;
 @NoArgsConstructor
 @Entity
+@Data
 @Table(name = "users")
-public class Users implements EntityService {
+public class User implements EntityService {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,13 +24,17 @@ public class Users implements EntityService {
     private Date birthday;
     @Column(name="user_phone_number")
     private String phoneNumber;
-    public Users(int id, String name, String surName, String email, Date birthday, String phoneNumber) {
+
+    @Column(name="user_password")
+    private String password;
+    public User(int id, String password,String name, String surName, String email, Date birthday, String phoneNumber) {
         this.id = id;
         this.name = name;
         this.surName = surName;
         this.email = email;
         this.birthday = birthday;
         this.phoneNumber = phoneNumber;
+        this.password=password;
     }
 
     public int getId() {
@@ -38,7 +44,13 @@ public class Users implements EntityService {
     public void setId(int id) {
         this.id = id;
     }
+    public String getPassword() {
+        return password;
+    }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
     public String getName() {
         return name;
     }

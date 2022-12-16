@@ -2,12 +2,14 @@ package demoProject.webProjectDemo1.entities.concretes;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import demoProject.webProjectDemo1.entities.abstracts.EntityService;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
 @Entity
 @Table(name = "product")
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler","category"})
 public class Product implements EntityService {
     @Column(name = "product_id")
@@ -29,8 +31,9 @@ public class Product implements EntityService {
     @Column(name = "product_net_price")
     private double netPrice=0;
 
+
     @ManyToOne
-    @JoinColumn(name="product_categoryId")
+    @JoinColumn(name="product_category_id")
      private Category category;
 
     public int getId() {
