@@ -1,11 +1,12 @@
 package demoProject.webProjectDemo1.entities.concretes;
+import demoProject.webProjectDemo1.entities.abstracts.EntityService;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.Date;
 @NoArgsConstructor
 @Entity
 @Table(name = "users")
-public class Users {
+public class Users implements EntityService {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +22,6 @@ public class Users {
     private Date birthday;
     @Column(name="user_phone_number")
     private String phoneNumber;
-
     public Users(int id, String name, String surName, String email, Date birthday, String phoneNumber) {
         this.id = id;
         this.name = name;

@@ -1,5 +1,6 @@
 package demoProject.webProjectDemo1.entities.concretes;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import demoProject.webProjectDemo1.entities.abstracts.EntityService;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
@@ -8,7 +9,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler","category"})
-public class Product {
+public class Product implements EntityService {
     @Column(name = "product_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
