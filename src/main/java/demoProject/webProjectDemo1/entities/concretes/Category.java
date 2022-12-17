@@ -1,5 +1,6 @@
 package demoProject.webProjectDemo1.entities.concretes;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import demoProject.webProjectDemo1.entities.abstracts.EntityService;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @Table(name = "category")
 @Data
-@AllArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","product"})
 public class Category implements EntityService {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +20,8 @@ public class Category implements EntityService {
     private int categoryId;
     @Column(name="category_name")
     private String categoryName;
+    @OneToMany(mappedBy = "category")
+    private List<Product> products;
 
     public Category(int categoryId, String categoryName) {
         this.categoryId = categoryId;
@@ -41,6 +44,5 @@ public class Category implements EntityService {
         this.categoryName = categoryName;
     }
 
-    @OneToMany(mappedBy = "category")
-    private List<Product> products;
+
 }

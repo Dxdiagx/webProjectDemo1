@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
+
 @Entity
 @Table(name = "product")
 @NoArgsConstructor
@@ -15,7 +16,7 @@ public class Product implements EntityService {
     @Column(name = "product_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    private int id;
+    private int productId;
     @Column(name = "product_name")
     private String productName;
     @Column(name = "product_unit_price")
@@ -30,18 +31,16 @@ public class Product implements EntityService {
     private int discount;
     @Column(name = "product_net_price")
     private double netPrice=0;
-
-
     @ManyToOne
     @JoinColumn(name="product_category_id")
      private Category category;
 
-    public int getId() {
-        return id;
+    public int getProductId() {
+        return productId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setProductId(int id) {
+        this.productId = id;
     }
 
     public String getProductName() {
