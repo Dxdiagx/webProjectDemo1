@@ -10,10 +10,9 @@ public interface ProductService {
     DataResult< List<Product>> getAll();
     Result add(Product product);
     DataResult< Product> getByProductName(String productName);
-    DataResult<Product> getByProductNameAndCategoryId(String productName,int categoryId);
-    DataResult<List<Product>> getByProductNameOrCategoryName(String productName,String categoryName);
+    DataResult<Product> getByProductNameAndCategory(String productName,int categoryId);
     DataResult< List<Product>> getByProductNameContains(String productName);
-    DataResult<List<Product> >getByProductNameStartsWith(String productName);
+    DataResult<List<Product>>getByProductNameStartsWith(String productName);
 
 
 }

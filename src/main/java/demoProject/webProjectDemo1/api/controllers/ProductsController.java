@@ -27,4 +27,8 @@ public class ProductsController {
     public Result add(@RequestBody Product product){
         return this.productService.add(product);
     }
+    @GetMapping ("/getByProductName")
+    DataResult< Product> getByProductName(String productName){
+        return this.productService.getByProductName(productName);
+    }
 }
